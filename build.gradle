@@ -1,0 +1,63 @@
+group 'ml-nodejs-sample'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'com.moowork.node'
+apply plugin: 'com.moowork.grunt'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:0.11"
+        classpath "com.moowork.gradle:gradle-grunt-plugin:0.11"
+    }
+}
+
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+node {
+    // Version of node to use.
+    version = '0.10.33'
+    // Base URL for fetching node distributions (change or activate it, when using a private mirror).
+    // distBaseUrl = 'http://foo.bar.com/dist/nodejs'
+
+    // Version of npm to use.
+    npmVersion = '2.1.5'
+
+    // Base URL for fetching node distributions (change if you have a mirror).
+    distBaseUrl = 'https://nodejs.org/dist'
+
+    // If true, it will download node using above parameters.
+    // If false, it will try to use globally installed node.
+    download = true
+
+    // Enabled the automatic download. False is the default. This always downloads a local node env into the workspace!
+    download = true
+    // define a local workdir, where the downloaded Node.JS is put into.
+    workDir = file("${project.buildDir}/nodejs")
+
+    // Set the work directory where node_modules should be located
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+grunt_build.dependsOn(npm_cache_clean)
+grunt_build.dependsOn 'npmInstall'
+grunt_build.dependsOn 'installGrunt'

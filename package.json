@@ -1,0 +1,21 @@
+{
+  "name": "ml-nodejs-sample",
+  "version": "0.0.0",
+  "description": "MarkLogic Node JS Sample Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ableasdale/ml-nodejs-sample.git"
+  },
+  "author": "Alex Bleasdale",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/ableasdale/ml-nodejs-sample/issues"
+  },
+  "dependencies": {
+    "marklogic": "~1.0.4"
+  }
+}
