@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "marklogic": "~1.0.4",
-    "string-multiline": "~0.1.1"
+    "mstring": "~0.1.2"
   }
 }
