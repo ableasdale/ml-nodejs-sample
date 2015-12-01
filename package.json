@@ -16,6 +16,7 @@
     "url": "https://github.com/ableasdale/ml-nodejs-sample/issues"
   },
   "dependencies": {
-    "marklogic": "~1.0.4"
+    "marklogic": "~1.0.4",
+    "string-multiline": "~0.1.1"
   }
 }
